@@ -83,3 +83,11 @@ publishes test artifacts to Maven Central.
 
 Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Third-party
 components retain their original licenses.
+
+## Running verification scripts
+
+The `.main.kts` scripts require JDK 25 and Kotlin 2.4.21+ (`kotlinr` on `PATH`).
+Run them with `kotlinr scripts/<name>.main.kts` from the repository root.
+The Kotlin Toolchain `./kotlin` command is a separate executable. CI installs the script runner
+through `.github/actions/setup-kotlin-script`; the first script run compiles the script and
+resolves any pinned Maven dependencies. Later runs use the local script cache.
